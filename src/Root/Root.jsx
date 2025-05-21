@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from '../Component/Header/Header';
 import Footer from '../Component/Footer/Footer';
-import { Outlet } from 'react-router';
+import { Outlet, useLoaderData } from 'react-router';
 
 const Root = () => {
+    const data = useLoaderData();
     return (
         <div>
-            <Header></Header>
+            <Header data={data}></Header>
             <div className='max-w-6xl mx-auto'>
                 <Outlet></Outlet>
             </div>

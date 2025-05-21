@@ -11,6 +11,7 @@ import SignIn from "./Page/SignIn";
 export const router = createBrowserRouter([
     {
         path: "/",
+        loader: () => fetch("http://localhost:3000/events"),
         element: <Root></Root>,
         children: [
             {
