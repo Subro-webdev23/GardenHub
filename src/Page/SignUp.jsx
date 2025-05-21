@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Component/OthersComponent/AuthContext';
 import { Link, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 
 const SignUp = () => {
+    const [error, setError] = useState("");
     const { createUser, setUser, signInGoogle } = useContext(AuthContext);
     console.log(createUser)
     const navigate = useNavigate()
@@ -15,6 +16,54 @@ const SignUp = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+
+        // Password validation
+        if (password.length < 8) {
+            setError("Password must be at least 6 characters long!");
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Password must be at least 6 characters long!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return;
+        }
+
+        if (!/[A-Z]/.test(password)) {
+            setError("Password must contain at least one uppercase letter!");
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Password must contain at least one uppercase letter!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return;
+        }
+
+        if (!/[a-z]/.test(password)) {
+            setError("Password must contain at least one lowercase letter!");
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Password must contain at least one lowercase letter!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return;
+        }
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            setError("Password must include at least one special character.");
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Password must include at least one special character.",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            return;
+        }
         // create user in the firebase 
         createUser(email, password)
             .then(result => {
@@ -70,6 +119,7 @@ const SignUp = () => {
                     <input type="email" name="email" className="input" placeholder="Email" />
                     <label className="label">Password</label>
                     <input type="password" name='password' className="input" placeholder="Password" />
+                    {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
                     <button className="btn btn-neutral mt-4">Sign up</button>
                 </form>
                 <p>Already Have an Account ? Please <Link className='text-blue-500' to="/signin">Sign In</Link></p>
