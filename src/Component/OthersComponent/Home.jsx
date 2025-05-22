@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
-import EventSlider from './EventSlider';
+import ActiveGardeners from './ActiveGardeners';
 
 const Home = () => {
     const data = useLoaderData();
@@ -8,8 +8,16 @@ const Home = () => {
 
     return (
         <div>
-            {/* Slider */}
-            {/* <EventSlider data={data}></EventSlider> */}
+            {/*Featured Gardeners  */}
+            <div className='py-20'>
+                <h1 className='text-4xl font-bold'>Active Gardeners</h1>
+                <ActiveGardeners></ActiveGardeners>
+            </div>
+
+            {/* Top Trending Tips section */}
+            <div className='py-20'>
+                <h2 className='text-4xl font-bold'>Top Trending Tips</h2>
+            </div>
 
         </div>
     );
