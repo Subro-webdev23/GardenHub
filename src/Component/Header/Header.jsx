@@ -6,7 +6,7 @@ import { AuthContext } from '../OthersComponent/AuthContext';
 import Swal from 'sweetalert2';
 import EventSlider from '../OthersComponent/EventSlider';
 
-const Header = ({ data }) => {
+const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
@@ -26,9 +26,15 @@ const Header = ({ data }) => {
     }
     const navLinks = <>
         <NavLink className="mx-2 pb-1 px-2 " to="/">Home </NavLink>
-        <NavLink className="mx-2 pb-1 px-2 " to="/shareGardenTip">Share a Garden Tip</NavLink>
+        <NavLink className="mx-2 pb-1 px-2 " to="/browseTips">Browse Tips</NavLink>
         <NavLink className="mx-2 pb-1 px-2 " to="/exploreGardens">Explore Gardeners</NavLink>
-        <NavLink className="mx-2 pb-1 px-2 " to="/myTips">My Tips</NavLink>
+        {
+            user && <>
+                <NavLink className="mx-2 pb-1 px-2 " to="/shareGardenTip">Share a Garden Tip</NavLink>
+                <NavLink className="mx-2 pb-1 px-2 " to={`/myTips/${user.email}`}>My Tips</NavLink>
+            </>
+        }
+
     </>
     return (
         <>
@@ -57,27 +63,32 @@ const Header = ({ data }) => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        {/* {user?.photoURL && (
-                        <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
-                            <img
-                                src={user.photoURL}
-                                alt="User"
-                                className="w-8 h-8 rounded-full mr-5 "
-                            />
-                        </div>
-                    )} */}
 
-                        {/* <img className='w-8 h-8 mr-5 hover:' src={user?.photoURL} alt={user?.displayName} /> */}
-                        <p>{user?.email}</p>
+                        {user ? (
+                            <div className="dropdown dropdown-end">
 
-                        {user ? <Link onClick={handleLogOut} className="btn">Log out</Link> : <Link to={"/signup"} className="btn">Sign Up</Link>}
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user.displayName}>
+                                    <div className="w-10 rounded-full">
+                                        <img src={user.photoURL} alt="User" />
+                                    </div>
+                                </div>
+
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-36">
+                                    <li>
+                                        <Link onClick={handleLogOut} className="text-red-500 hover:bg-red-100">
+                                            Log out
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        ) : (
+                            <Link to="/signup" className="btn">Sign Up</Link>
+                        )}
 
                     </div>
                 </div>
             </div>
-            <div className='-mb-2'>
-                <EventSlider data={data}></EventSlider>
-            </div>
+
         </>
 
     );

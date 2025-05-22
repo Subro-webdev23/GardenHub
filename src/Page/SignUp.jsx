@@ -6,15 +6,17 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [error, setError] = useState("");
-    const { createUser, setUser, signInGoogle } = useContext(AuthContext);
-    console.log(createUser)
+    const { createUser, setUser, signInGoogle, updateUser } = useContext(AuthContext);
+    // console.log(createUser)
     const navigate = useNavigate()
 
 
     const handleSignUp = e => {
         e.preventDefault();
         const form = e.target;
+        const name = form.name.value;
         const email = form.email.value;
+        const photo = form.photo.value;
         const password = form.password.value;
 
         // Password validation
@@ -68,16 +70,24 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                setUser(user);
+                // setUser(user);
                 console.log("setUser", user);
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Sign up Successful!",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                navigate("/");
+                updateUser({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photo });
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Sign up Successful!",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate("/");
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        setUser(user);
+                    })
 
             })
             .catch(error => {
