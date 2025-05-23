@@ -17,7 +17,7 @@ const TrendingTips = () => {
                             <div key={index} className="card bg-base-100 w-96 shadow-sm">
                                 <figure>
                                     <img className='w-100 h-65 object-cover'
-                                        src={tip.image}
+                                        src={tip.imagesURL}
                                         alt={tip.title} />
                                 </figure>
                                 <div className="card-body">

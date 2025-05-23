@@ -45,6 +45,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/exploreGardens",
+                loader: () => fetch("http://localhost:3000/gardeners"),
                 element: <ExploreGardens></ExploreGardens>
             },
             {
