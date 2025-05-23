@@ -40,7 +40,7 @@ const TipsTable = ({ tip, setTips, tips }) => {
         });
     }
     return (
-        <tr className="border-t hover:bg-gray-50">
+        <tr className="border-t">
             <td className="px-6 py-4">
                 <img
                     src={tip.imagesURL}
@@ -48,7 +48,7 @@ const TipsTable = ({ tip, setTips, tips }) => {
                     className="h-12 w-12 rounded object-cover"
                 />
             </td>
-            <td className="px-6 py-4 font-medium text-gray-900">{tip.title}</td>
+            <td className="px-6 py-4 font-medium">{tip.title}</td>
             <td className="px-6 py-4">{tip.topic}</td>
             <td className="px-6 py-4">{tip.category}</td>
             <td className="px-6 py-4">{tip.level}</td>

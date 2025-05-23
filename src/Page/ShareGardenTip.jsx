@@ -3,7 +3,7 @@ import { AuthContext } from '../Component/OthersComponent/AuthContext';
 import Swal from 'sweetalert2';
 
 const ShareGardenTip = () => {
-    const { user } = useContext(AuthContext);
+    const { user, dark } = useContext(AuthContext);
     // console.log(user);
     const handleTip = e => {
         e.preventDefault();
@@ -37,39 +37,39 @@ const ShareGardenTip = () => {
 
     return (
         <div className='max-w-6xl mx-auto'>
-            <form onSubmit={handleTip} className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-2xl mx-auto space-y-5">
+            <form onSubmit={handleTip} className={`bg-white shadow-xl rounded-2xl p-8 w-full max-w-2xl mx-auto space-y-5 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>
                 <h2 className="text-2xl font-semibold text-center text-green-700 mb-4">
                     Submit a Plant Tip
                 </h2>
 
                 {/* Title */}
                 <div>
-                    <label className="block font-medium text-gray-700 mb-1">Title</label>
+                    <label className="block font-medium text-gray-500 mb-1">Title</label>
                     <input
                         type="text"
                         name="title"
                         placeholder="Enter tip title"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition"
                     />
                 </div>
 
                 {/* Topic */}
                 <div>
-                    <label className="block font-medium text-gray-700 mb-1">Plant Type / Topic</label>
+                    <label className="block font-medium text-gray-500 mb-1">Plant Type / Topic</label>
                     <input
                         type="text"
                         name="topic"
                         placeholder="e.g., Indoor Plant"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm  focus:outline-none focus:ring-2 focus:ring-green-500 transition"
                     />
                 </div>
 
                 {/* Difficulty Level */}
                 <div>
-                    <label className="block font-medium text-gray-700 mb-1">Difficulty Level</label>
+                    <label className="block font-medium text-gray-500 mb-1">Difficulty Level</label>
                     <select
                         name="level"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                        className={`w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}
                     >
                         <option>Select Level</option>
                         <option value="Easy">Easy</option>
@@ -80,43 +80,43 @@ const ShareGardenTip = () => {
 
                 {/* Description */}
                 <div>
-                    <label className="block font-medium text-gray-700 mb-1">Description</label>
+                    <label className="block font-medium text-gray-500 mb-1">Description</label>
                     <input
                         type="text"
                         name="description"
                         placeholder="Brief description of the tip"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition"
                     />
                 </div>
 
                 {/* Image URL */}
                 <div>
-                    <label className="block font-medium text-gray-700 mb-1">Image URL</label>
+                    <label className="block font-medium text-gray-500 mb-1">Image URL</label>
                     <input
                         type="url"
                         name="imagesURL"
                         placeholder="https://example.com/image.jpg"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm  focus:outline-none focus:ring-2 focus:ring-green-500 transition"
                     />
                 </div>
 
                 {/* Category */}
                 <div>
-                    <label className="block font-medium text-gray-700 mb-1">Category</label>
+                    <label className="block font-medium text-gray-500 mb-1">Category</label>
                     <input
                         type="text"
                         name="category"
                         placeholder="e.g., Gardening, Herbs, Tips"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition"
                     />
                 </div>
 
                 {/* Availability */}
                 <div>
-                    <label className="block font-medium text-gray-700 mb-1">Availability</label>
+                    <label className="block font-medium text-gray-500 mb-1">Availability</label>
                     <select
                         name="availability"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                        className={`w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}
                     >
                         <option>Select Availability</option>
                         <option value="public">Public</option>
@@ -126,13 +126,13 @@ const ShareGardenTip = () => {
 
                 {/* Email (readonly) */}
                 <div>
-                    <label className="block font-medium text-gray-700 mb-1">Email</label>
+                    <label className="block font-medium text-gray-500 mb-1">Email</label>
                     <input
                         type="text"
                         name="email"
                         value={user.email}
                         readOnly
-                        className="w-full px-4 py-2 border border-gray-200 rounded-xl bg-gray-100 text-gray-500 cursor-not-allowed"
+                        className="w-full px-4 py-2 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed"
                     />
                 </div>
 
@@ -144,7 +144,7 @@ const ShareGardenTip = () => {
                         name="name"
                         value={user.displayName}
                         readOnly
-                        className="w-full px-4 py-2 border border-gray-200 rounded-xl bg-gray-100 text-gray-500 cursor-not-allowed"
+                        className="w-full px-4 py-2 border border-gray-200 rounded-xl  text-gray-500 cursor-not-allowed"
                     />
                 </div>
 

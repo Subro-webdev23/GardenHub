@@ -4,10 +4,13 @@ import { IoMdMenu } from 'react-icons/io';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../OthersComponent/AuthContext';
 import Swal from 'sweetalert2';
-import EventSlider from '../OthersComponent/EventSlider';
+import { IoMoon, IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, dark, setDark } = useContext(AuthContext);
+    const handleTheme = () => {
+        setDark(!dark);
+    }
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -38,7 +41,7 @@ const Header = () => {
     </>
     return (
         <>
-            <div className=' bg-[#00800020] backdrop-blur-2xl shadow-sm sticky top-0  z-10'>
+            <div className={` bg-[#00800020]  backdrop-blur-2xl shadow-sm sticky top-0  z-10 `}>
                 <div className="navbar max-w-6xl mx-auto">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -66,6 +69,12 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
+
+                        <button onClick={() => handleTheme()} className='mr-5 cursor-pointer'>
+                            {
+                                dark ? <IoSunnyOutline size={25} /> : <IoMoonOutline size={25} />
+                            }
+                        </button>
 
                         {user ? (
                             <div className="dropdown dropdown-end">
