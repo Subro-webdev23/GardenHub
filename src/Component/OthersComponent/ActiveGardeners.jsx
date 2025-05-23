@@ -21,10 +21,10 @@ const ActiveGardeners = () => {
                             />
 
                             {/* Hover Overlay */}
-                            <div className="absolute top-1/2 left-1/2 w-96 h-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#000000d0] bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 z-20 flex flex-col items-center justify-center text-white group">
+                            <div className="absolute top-1/2 left-1/2 w-96  h-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#000000d0] bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 z-9 flex flex-col items-center justify-center text-white group">
                                 <span className="text-3xl mb-1">+</span>
                                 <p className="font-bold">{gardener.name}</p>
-                                <p className="text-sm">{gardener.experience}</p>
+                                <p className="text-sm">{gardener.experiences}</p>
                             </div>
                         </div>
 

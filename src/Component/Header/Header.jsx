@@ -47,16 +47,19 @@ const Header = () => {
                             </div>
                             <ul
                                 tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                className="menu my-menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                                 {
                                     navLinks
                                 }
                             </ul>
                         </div>
-                        <a ><ImLeaf style={{ color: "green", fontSize: "36px" }} /></a>
+                        <Link to={"/"} className="flex items-center gap-2 text-green-700 hover:text-green-800 transition-all duration-300">
+                            <ImLeaf className="text-4xl text-green-600" />
+                            <span className="text-2xl font-bold tracking-wide">GardenHub</span>
+                        </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1">
+                        <ul className="menu my-menu menu-horizontal px-1">
                             {
                                 navLinks
                             }

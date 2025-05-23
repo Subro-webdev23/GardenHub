@@ -2,5 +2,5 @@
 @plugin "daisyui";
 
 .active {
-    @apply border-b-3 border-green-500;
+    @apply border-b-3 border-green-600;
 }
