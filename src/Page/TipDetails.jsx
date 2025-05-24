@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { BiSolidLike } from 'react-icons/bi';
 import { useLoaderData } from 'react-router';
 import { Tooltip } from 'react-tooltip';
+import { AuthContext } from '../Component/OthersComponent/AuthContext';
 
 const TipDetails = () => {
     const [like, setLike] = useState(0)
     const { _id, title, topic, level, description, imagesURL, category, availability } = useLoaderData();
+    const { dark } = useContext(AuthContext);
     console.log(title);
     const handleLike = (id) => {
         fetch(`https://assignment-10-server-seven-topaz.vercel.app/tips/${id}`, {
@@ -34,8 +36,8 @@ const TipDetails = () => {
                     Details
                 </title>
             </Helmet>
-            <div className="max-w-3xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-xl">
-                <h1 className="text-3xl font-bold text-gray-800 mb-4">{title}</h1>
+            <div className={`max-w-3xl mx-auto p-6 mt-10 shadow-lg rounded-xl ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>
+                <h1 className="text-3xl font-bold mb-4">{title}</h1>
 
                 <div className="rounded-lg overflow-hidden mb-6">
                     <img src={imagesURL} alt={title} className="w-full h-64 object-cover" />
@@ -47,7 +49,7 @@ const TipDetails = () => {
                     <p className='mb-5'>{like} Likes</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 text-gray-700 mb-6">
+                <div className="grid grid-cols-2 gap-4 text-gray-500 mb-6">
 
                     <div>
                         <span className="font-semibold">Topic:</span> {topic}
