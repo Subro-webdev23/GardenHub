@@ -9,7 +9,7 @@ const TipDetails = () => {
     const { _id, title, topic, level, description, imagesURL, category, availability } = useLoaderData();
     console.log(title);
     const handleLike = (id) => {
-        fetch(`http://localhost:3000/tips/${id}`, {
+        fetch(`https://assignment-10-server-seven-topaz.vercel.app/tips/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
