@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "tipDetails/:id",
-                loader: ({ params }) => fetch(`http://localhost:3000/publicTips/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-10-server-seven-topaz.vercel.app/publicTips/${params.id}`),
                 element: <PrivateRoute>
                     <TipDetails></TipDetails>
                 </PrivateRoute>
@@ -50,14 +50,14 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/myTips/:email",
-                loader: ({ params }) => fetch(`http://localhost:3000/myTips/${params.email}`),
+                loader: ({ params }) => fetch(`https://assignment-10-server-seven-topaz.vercel.app/myTips/${params.email}`),
                 element: <PrivateRoute>
                     <MyTips></MyTips>
                 </PrivateRoute>
             },
             {
                 path: "update/:id",
-                loader: ({ params }) => fetch(`http://localhost:3000/update/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-10-server-seven-topaz.vercel.app/update/${params.id}`),
                 element: <PrivateRoute>
                     <UpdateTips></UpdateTips>
                 </PrivateRoute>

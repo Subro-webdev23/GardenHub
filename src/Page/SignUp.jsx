@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [error, setError] = useState("");
-    const { createUser, setUser, signInGoogle, updateUser } = useContext(AuthContext);
+    const { createUser, setUser, signInGoogle, updateUser, dark } = useContext(AuthContext);
     // console.log(createUser)
     const navigate = useNavigate()
 
@@ -117,18 +117,18 @@ const SignUp = () => {
             })
     }
     return (
-        <div className="card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-10">
+        <div className={`card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-10${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>
             <div className="card-body">
                 <h1 className="text-5xl font-bold">Sign Up now!</h1>
                 <form onSubmit={handleSignUp} className="fieldset">
                     <label className="label">Name</label>
-                    <input type="text" name="name" className="input" placeholder="Name" />
+                    <input type="text" name="name" className={`input border dark:border-gray-700 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`} placeholder="Name" />
                     <label className="label">photo</label>
-                    <input type="url" name="photo" className="input" placeholder="Photo URL" />
+                    <input type="url" name="photo" className={`input border dark:border-gray-700 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`} placeholder="Photo URL" />
                     <label className="label">Email</label>
-                    <input type="email" name="email" className="input" placeholder="Email" />
+                    <input type="email" name="email" className={`input border dark:border-gray-700 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`} placeholder="Email" />
                     <label className="label">Password</label>
-                    <input type="password" name='password' className="input" placeholder="Password" />
+                    <input type="password" name='password' className={`input border dark:border-gray-700 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`} placeholder="Password" />
                     {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
                     <button className="btn btn-neutral mt-4">Sign up</button>
                 </form>

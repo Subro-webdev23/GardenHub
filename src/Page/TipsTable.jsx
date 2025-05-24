@@ -17,7 +17,7 @@ const TipsTable = ({ tip, setTips, tips }) => {
             if (result.isConfirmed) {
 
                 // start deleting the Tip
-                fetch(`http://localhost:3000/update/${_id}`, {
+                fetch(`https://assignment-10-server-seven-topaz.vercel.app/update/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

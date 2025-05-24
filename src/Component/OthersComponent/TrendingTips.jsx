@@ -6,7 +6,7 @@ const TrendingTips = () => {
     const { dark } = useContext(AuthContext);
     useEffect(() => {
         // setLoading(true)
-        fetch("http://localhost:3000/tips")
+        fetch("https://assignment-10-server-seven-topaz.vercel.app/tips")
             .then(res => res.json())
             .then(data => setTips(data));
         // setLoading(false)

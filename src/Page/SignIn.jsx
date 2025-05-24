@@ -4,7 +4,7 @@ import { AuthContext } from '../Component/OthersComponent/AuthContext';
 import Swal from 'sweetalert2';
 
 const SignIn = () => {
-    const { signInUser, setUser, signInGoogle } = useContext(AuthContext);
+    const { signInUser, setUser, signInGoogle, dark } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -65,15 +65,15 @@ const SignIn = () => {
     }
 
     return (
-        <div className="card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl">
+        <div className={`card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>
             <div className="card-body">
                 <h1 className="text-5xl font-bold">Sign In now!</h1>
                 <form onSubmit={handleSignIn} className="fieldset">
 
                     <label className="label">Email</label>
-                    <input type="email" name="email" className="input" placeholder="Email" />
+                    <input type="email" name="email" className={`input border dark:border-gray-700 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`} placeholder="Email" />
                     <label className="label">Password</label>
-                    <input type="password" name='password' className="input" placeholder="Password" />
+                    <input type="password" name='password' className={`input border dark:border-gray-700 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`} placeholder="Password" />
                     <button className="btn btn-neutral mt-4">Sign in</button>
                 </form>
                 <p>Don't Have an Account ? Please <Link className='text-blue-500' to="/signup">Sign Up</Link></p>

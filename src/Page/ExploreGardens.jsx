@@ -7,7 +7,7 @@ const ExploreGardens = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch("http://localhost:3000/gardeners")
+        fetch("https://assignment-10-server-seven-topaz.vercel.app/gardeners")
             .then(res => res.json())
             .then(data => {
                 setData(data)

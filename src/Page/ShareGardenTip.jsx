@@ -12,7 +12,7 @@ const ShareGardenTip = () => {
         const { ...tipsData } = Object.fromEntries(formData.entries());
         console.log(tipsData);
 
-        fetch('http://localhost:3000/tips', {
+        fetch('https://assignment-10-server-seven-topaz.vercel.app/tips', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
