@@ -1,13 +1,33 @@
-import React, { useContext, useState } from 'react';
-import { Link, useLoaderData } from 'react-router';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router';
 import { AuthContext } from '../Component/OthersComponent/AuthContext';
 
 const BrowseTips = () => {
-    const data = useLoaderData();
+    // const data = useLoaderData();
+    const [selectedLevel, setSelectedLevel] = useState("All");
     const { dark } = useContext(AuthContext);
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        fetch("http://localhost:3000/publicTips")
+            .then(res => res.json())
+            .then(data => {
+                setData(data)
+                setLoading(false);
+            })
+
+    }, [])
+    if (loading) {
+        return (
+            <div className='flex justify-center items-center'>
+                <span className="loading loading-bars loading-xl"></span>
+            </div>
+        );
+    }
+
     const levels = ["All", ...new Set(data.map(obj => obj.level))];
     // console.log(levels);
-    const [selectedLevel, setSelectedLevel] = useState("All");
+
     const filteredTips = selectedLevel === "All"
         ? data
         : data.filter(tip => tip.level === selectedLevel);

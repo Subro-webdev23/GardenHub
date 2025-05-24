@@ -1,20 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ActiveGardeners from './ActiveGardeners';
 import TrendingTips from './TrendingTips';
-import { useLoaderData } from 'react-router';
 import EventSlider from './EventSlider';
 import { BiLeaf } from 'react-icons/bi';
 import { AuthContext } from './AuthContext';
 
 const Home = () => {
-    const data = useLoaderData()
+    // const data = useLoaderData()
+    const [eventData, setEventData] = useState([])
+    const [loading, setLoading] = useState(true);
     const { dark } = useContext(AuthContext);
+    useEffect(() => {
+        fetch("http://localhost:3000/events")
+            .then(res => res.json())
+            .then(data => {
+                setEventData(data)
+                setLoading(false);
+            })
+
+    }, [])
+    if (loading) {
+        return (
+            <div className='flex justify-center items-center'>
+                <span className="loading loading-bars loading-xl"></span>
+            </div>
+        );
+    }
+
 
 
     return (
         <div>
             {/* Slider */}
-            <EventSlider data={data}></EventSlider>
+            <EventSlider data={eventData}></EventSlider>
             <div className='max-w-6xl mx-auto'>
                 <section className={`text-center px-4 py-20 bg-white ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>
                     <h2 className="text-4xl font-bold">

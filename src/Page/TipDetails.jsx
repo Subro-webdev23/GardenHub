@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { BiSolidLike } from 'react-icons/bi';
 import { useLoaderData } from 'react-router';
+import { Tooltip } from 'react-tooltip';
 
 const TipDetails = () => {
+    const [like, setLike] = useState(0)
     const { title, topic, level, description, imagesURL, category, availability } = useLoaderData();
     console.log(title);
 
@@ -13,8 +16,15 @@ const TipDetails = () => {
                 <div className="rounded-lg overflow-hidden mb-6">
                     <img src={imagesURL} alt={title} className="w-full h-64 object-cover" />
                 </div>
+                <div>
+                    <BiSolidLike size={30} onClick={() => setLike((like) => like + 1)} data-tooltip-id="my-tooltip"
+                        data-tooltip-content="Like Post" className='my-5 cursor-pointer' />
+                    <Tooltip id="my-tooltip" />
+                    <p className='mb-5'>{like} Likes</p>
+                </div>
 
                 <div className="grid grid-cols-2 gap-4 text-gray-700 mb-6">
+
                     <div>
                         <span className="font-semibold">Topic:</span> {topic}
                     </div>
@@ -30,6 +40,7 @@ const TipDetails = () => {
                             {availability}
                         </span>
                     </div>
+
                 </div>
 
                 <p className="text-gray-800 leading-relaxed">{description}</p>

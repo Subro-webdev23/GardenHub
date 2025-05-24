@@ -5,9 +5,11 @@ const TrendingTips = () => {
     const [tips, setTips] = useState([])
     const { dark } = useContext(AuthContext);
     useEffect(() => {
+        // setLoading(true)
         fetch("http://localhost:3000/tips")
             .then(res => res.json())
             .then(data => setTips(data));
+        // setLoading(false)
     }, []);
 
     return (

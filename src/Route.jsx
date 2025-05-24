@@ -13,6 +13,8 @@ import NotFoundPage from "./Page/NotFoundPage";
 import PrivateRoute from "./PrivateRoute";
 import TipDetails from "./Page/TipDetails";
 import UpdateTips from "./Page/UpdateTips";
+import { Suspense } from "react";
+import { HiH2 } from "react-icons/hi2";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -22,7 +24,6 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 path: "/",
-                loader: () => fetch("http://localhost:3000/events"),
                 element: <Home></Home>
             },
             {
@@ -33,8 +34,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/browseTips",
-                loader: () => fetch("http://localhost:3000/publicTips"),
                 element: <BrowseTips></BrowseTips>
+
             },
             {
                 path: "tipDetails/:id",
@@ -45,7 +46,6 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/exploreGardens",
-                loader: () => fetch("http://localhost:3000/gardeners"),
                 element: <ExploreGardens></ExploreGardens>
             },
             {

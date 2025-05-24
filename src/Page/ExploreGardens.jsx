@@ -1,11 +1,27 @@
-import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router';
+import React, { useContext, useEffect, useState } from 'react';
 import Gardener from '../Component/OthersComponent/Gardener';
 import { AuthContext } from '../Component/OthersComponent/AuthContext';
 
 const ExploreGardens = () => {
-    const data = useLoaderData();
     const { dark } = useContext(AuthContext);
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        fetch("http://localhost:3000/gardeners")
+            .then(res => res.json())
+            .then(data => {
+                setData(data)
+                setLoading(false);
+            })
+
+    }, [])
+    if (loading) {
+        return (
+            <div className='flex justify-center items-center'>
+                <span className="loading loading-bars loading-xl"></span>
+            </div>
+        );
+    }
     return (
         <div className="max-w-6xl mx-auto p-6">
             <h2 className="text-3xl font-bold mb-6 text-center">Meet Our Gardeners</h2>
