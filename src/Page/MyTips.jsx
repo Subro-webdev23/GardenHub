@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import TipsTable from './TipsTable';
 import { AuthContext } from '../Component/OthersComponent/AuthContext';
+import { Helmet } from 'react-helmet';
 
 const MyTips = () => {
     const data = useLoaderData();
@@ -12,6 +13,11 @@ const MyTips = () => {
 
     return (
         <div className="max-w-6xl mx-auto p-6">
+            <Helmet>
+                <title>
+                    My Tips
+                </title>
+            </Helmet>
             <h1 className="text-2xl font-bold mb-6">My Tips</h1>
 
             <div className="overflow-x-auto rounded-lg shadow">

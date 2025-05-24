@@ -4,6 +4,8 @@ import TrendingTips from './TrendingTips';
 import EventSlider from './EventSlider';
 import { BiLeaf } from 'react-icons/bi';
 import { AuthContext } from './AuthContext';
+import { Typewriter } from 'react-simple-typewriter';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     // const data = useLoaderData()
@@ -31,12 +33,25 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>
+                    Home
+                </title>
+            </Helmet>
             {/* Slider */}
             <EventSlider data={eventData}></EventSlider>
             <div className='max-w-6xl mx-auto'>
                 <section className={`text-center px-4 py-20 bg-white ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>
                     <h2 className="text-4xl font-bold">
-                        Welcome To <span className="text-green-600">GardenHub</span>
+                        Welcome To <span className="text-green-600"><Typewriter
+                            words={['GardenHub']}
+                            loop={0}
+                            cursor
+                            cursorStyle="|"
+                            typeSpeed={100}
+                            deleteSpeed={50}
+                            delaySpeed={1500}
+                        /></span>
                     </h2>
 
                     <div className="flex items-center justify-center my-4">

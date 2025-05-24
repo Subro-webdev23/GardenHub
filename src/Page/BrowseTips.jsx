@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../Component/OthersComponent/AuthContext';
+import { Helmet } from 'react-helmet';
 
 const BrowseTips = () => {
     // const data = useLoaderData();
@@ -41,6 +42,11 @@ const BrowseTips = () => {
 
     return (
         <div className="max-w-6xl mx-auto px-4 py-8">
+            <Helmet>
+                <title>
+                    Browse Tips
+                </title>
+            </Helmet>
             {/* Filter Buttons */}
             <div className="flex flex-wrap gap-3 mb-6">
 

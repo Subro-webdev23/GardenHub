@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Component/OthersComponent/AuthContext';
 import { Link, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 
 const SignUp = () => {
@@ -118,6 +119,11 @@ const SignUp = () => {
     }
     return (
         <div className={`card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-10${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>
+            <Helmet>
+                <title>
+                    Sign Up
+                </title>
+            </Helmet>
             <div className="card-body">
                 <h1 className="text-5xl font-bold">Sign Up now!</h1>
                 <form onSubmit={handleSignUp} className="fieldset">

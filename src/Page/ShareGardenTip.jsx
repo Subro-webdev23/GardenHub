@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Component/OthersComponent/AuthContext';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const ShareGardenTip = () => {
     const { user, dark } = useContext(AuthContext);
@@ -10,8 +11,8 @@ const ShareGardenTip = () => {
         const form = e.target;
         const formData = new FormData(form);
         const { ...tipsData } = Object.fromEntries(formData.entries());
-        console.log(tipsData);
-
+        tipsData.likes = 0;
+        console.log("tipsData", tipsData);
         fetch('https://assignment-10-server-seven-topaz.vercel.app/tips', {
             method: 'POST',
             headers: {
@@ -37,6 +38,11 @@ const ShareGardenTip = () => {
 
     return (
         <div className='max-w-6xl mx-auto'>
+            <Helmet>
+                <title>
+                    Share Garden Tips
+                </title>
+            </Helmet>
             <form onSubmit={handleTip} className={`bg-white shadow-xl rounded-2xl p-8 w-full max-w-2xl mx-auto space-y-5 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>
                 <h2 className="text-2xl font-semibold text-center text-green-700 mb-4">
                     Submit a Plant Tip

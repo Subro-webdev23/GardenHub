@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Component/OthersComponent/AuthContext';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const SignIn = () => {
     const { signInUser, setUser, signInGoogle, dark } = useContext(AuthContext);
@@ -66,6 +67,11 @@ const SignIn = () => {
 
     return (
         <div className={`card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>
+            <Helmet>
+                <title>
+                    Sign In
+                </title>
+            </Helmet>
             <div className="card-body">
                 <h1 className="text-5xl font-bold">Sign In now!</h1>
                 <form onSubmit={handleSignIn} className="fieldset">

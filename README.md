@@ -1,12 +1,18 @@
-# React + Vite
+# GardenHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Link : https://assignment-10-auth-845b0.web.app/
 
-Currently, two official plugins are available:
+<h2>Feature</h2>
+<ul>
+<li>Active Gardeners
+<li>Top Trending Tips
+<li>Browse Tips
+<li>Meet Our Gardeners
+<li>Share a Garden Tip
+<li>My Tips
+</ul>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2>Project description</h2>
+<p>A platform for gardening enthusiasts to share tips, find local gardeners, ask plant care questions, post or join gardening events, and connect over shared interests like composting, hydroponics, balcony gardens, etc.
+<p>
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

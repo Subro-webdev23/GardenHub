@@ -1,23 +1,47 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { BiSolidLike } from 'react-icons/bi';
 import { useLoaderData } from 'react-router';
 import { Tooltip } from 'react-tooltip';
 
 const TipDetails = () => {
     const [like, setLike] = useState(0)
-    const { title, topic, level, description, imagesURL, category, availability } = useLoaderData();
+    const { _id, title, topic, level, description, imagesURL, category, availability } = useLoaderData();
     console.log(title);
+    const handleLike = (id) => {
+        fetch(`http://localhost:3000/tips/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setLike(prev => prev + 1);
+
+            })
+            .catch(error => {
+                console.error('Error updating like count:', error);
+            });
+
+
+    }
 
     return (
         <div className='max-w-6xl mx-auto pb-15'>
+            <Helmet>
+                <title>
+                    Details
+                </title>
+            </Helmet>
             <div className="max-w-3xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-xl">
                 <h1 className="text-3xl font-bold text-gray-800 mb-4">{title}</h1>
 
                 <div className="rounded-lg overflow-hidden mb-6">
                     <img src={imagesURL} alt={title} className="w-full h-64 object-cover" />
                 </div>
-                <div>
-                    <BiSolidLike size={30} onClick={() => setLike((like) => like + 1)} data-tooltip-id="my-tooltip"
+                <div onClick={() => handleLike(_id)} >
+                    <BiSolidLike size={30} data-tooltip-id="my-tooltip"
                         data-tooltip-content="Like Post" className='my-5 cursor-pointer' />
                     <Tooltip id="my-tooltip" />
                     <p className='mb-5'>{like} Likes</p>

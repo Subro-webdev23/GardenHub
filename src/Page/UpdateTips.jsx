@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Component/OthersComponent/AuthContext';
 import { useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const UpdateTips = () => {
     const { user, dark } = useContext(AuthContext);
@@ -39,6 +40,11 @@ const UpdateTips = () => {
     }
     return (
         <div className='max-w-6xl mx-auto'>
+            <Helmet>
+                <title>
+                    Update
+                </title>
+            </Helmet>
             <form onSubmit={handleUpdate} className={`bg-white shadow-xl rounded-2xl p-8 w-full max-w-2xl mx-auto space-y-5 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>
                 <h2 className="text-2xl font-semibold text-center text-green-700 mb-4">
                     Update Plant Tip

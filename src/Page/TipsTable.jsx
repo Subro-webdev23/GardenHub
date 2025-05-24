@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
@@ -41,6 +42,11 @@ const TipsTable = ({ tip, setTips, tips }) => {
     }
     return (
         <tr className="border-t">
+            <Helmet>
+                <title>
+                    All Tips
+                </title>
+            </Helmet>
             <td className="px-6 py-4">
                 <img
                     src={tip.imagesURL}
