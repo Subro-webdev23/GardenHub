@@ -19,11 +19,11 @@ const MyTips = () => {
                     <thead className="bg-gray-100 text-gray-700 text-sm uppercase">
                         <tr>
                             <th className="px-6 py-3">Image</th>
-                            <th className="px-6 py-3">Title</th>
-                            <th className="px-6 py-3">Topic</th>
-                            <th className="px-6 py-3">Category</th>
-                            <th className="px-6 py-3">Level</th>
-                            <th className="px-6 py-3">Availability</th>
+                            <th className="px-6 hidden lg:table-cell py-3">Title</th>
+                            <th className="px-6 hidden lg:table-cell py-3">Topic</th>
+                            <th className="px-6 hidden lg:table-cell py-3">Category</th>
+                            <th className="px-6 hidden lg:table-cell py-3">Level</th>
+                            <th className="px-6 hidden lg:table-cell py-3">Availability</th>
                             <th className="px-6 py-3 text-center">Actions</th>
                         </tr>
                     </thead>

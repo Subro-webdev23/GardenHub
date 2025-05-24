@@ -39,8 +39,8 @@ const BrowseTips = () => {
                     <thead className={`bg-gray-100 text-gray-700 uppercase text-sm leading-normal ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-600`}>
                         <tr>
                             <th className="py-3 px-6 text-left">Image</th>
-                            <th className="py-3 px-6 text-left">Title</th>
-                            <th className="py-3 px-6 text-left">Category</th>
+                            <th className="py-3 px-6 hidden lg:table-cell text-left">Title</th>
+                            <th className="py-3 px-6 hidden lg:table-cell text-left">Category</th>
                             <th className="py-3 px-6 text-center">Details</th>
                         </tr>
                     </thead>
@@ -63,8 +63,8 @@ const BrowseTips = () => {
                                         </div>
                                     </div>
                                 </td>
-                                <td className="py-3 px-6 text-left font-medium">{tip.title}</td>
-                                <td className="py-3 px-6 text-left capitalize">{tip.category}</td>
+                                <td className="py-3 px-6 text-left hidden lg:table-cell font-medium">{tip.title}</td>
+                                <td className="py-3 px-6 text-left hidden lg:table-cell capitalize">{tip.category}</td>
                                 <td className="py-3 px-6 text-center">
                                     <Link to={`/tipDetails/${tip._id}`} className=" text-white text-xs px-4 py-2 rounded-lg bg-green-600 hover:bg-green-700 transition">
                                         See More

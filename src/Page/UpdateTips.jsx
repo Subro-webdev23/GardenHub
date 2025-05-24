@@ -72,7 +72,7 @@ const UpdateTips = () => {
                     <select
                         name="level"
                         defaultValue={level}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm  focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                        className={`w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}
                     >
                         <option>Select Level</option>
                         <option value="Easy">Easy</option>
@@ -120,7 +120,7 @@ const UpdateTips = () => {
                     <select
                         name="availability"
                         defaultValue={availability}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm  focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                        className={`w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}
                     >
                         <option>Select Availability</option>
                         <option value="public">Public</option>

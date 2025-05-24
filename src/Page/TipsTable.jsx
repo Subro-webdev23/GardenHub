@@ -48,11 +48,11 @@ const TipsTable = ({ tip, setTips, tips }) => {
                     className="h-12 w-12 rounded object-cover"
                 />
             </td>
-            <td className="px-6 py-4 font-medium">{tip.title}</td>
-            <td className="px-6 py-4">{tip.topic}</td>
-            <td className="px-6 py-4">{tip.category}</td>
-            <td className="px-6 py-4">{tip.level}</td>
-            <td className="px-6 py-4 capitalize">
+            <td className="px-6 py-4 hidden lg:table-cell font-medium">{tip.title}</td>
+            <td className="px-6 hidden lg:table-cell py-4">{tip.topic}</td>
+            <td className="px-6 hidden lg:table-cell py-4">{tip.category}</td>
+            <td className="px-6 hidden lg:table-cell py-4">{tip.level}</td>
+            <td className="px-6 py-4 hidden lg:table-cell capitalize">
                 <span
                     className={`px-2 py-1 rounded text-xs font-medium ${tip.availability === 'public'
                         ? 'bg-green-100 text-green-700'
