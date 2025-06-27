@@ -15,6 +15,8 @@ import TipDetails from "./Page/TipDetails";
 import UpdateTips from "./Page/UpdateTips";
 import { Suspense } from "react";
 import { HiH2 } from "react-icons/hi2";
+import DashboardOverview from "./Page/DashboardOverview";
+import DashboardLayout from "./LayOut/DashboardLayout";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -72,4 +74,14 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: '/dashboard',
+        element: <DashboardLayout />,
+        children: [
+            { index: true, element: <DashboardOverview /> },
+            // { path: 'all-items', element: <AllItems /> },
+            // { path: 'my-items', element: <MyTips /> },
+            // { path: 'add-item', element: <AddItem /> }
+        ]
+    }
 ]);

@@ -14,7 +14,7 @@ const MyTips = () => {
     return (
         <div className="max-w-6xl mx-auto p-6">
             <Helmet>
-                Dashboard
+                My Tips
             </Helmet>
             <h1 className="text-2xl font-bold mb-6">My Tips / {tips.length}</h1>
 

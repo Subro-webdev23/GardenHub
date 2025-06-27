@@ -34,7 +34,8 @@ const Header = () => {
         {
             user && <>
                 <NavLink className="mx-2 pb-1 px-2 " to="/shareGardenTip">Share a Garden Tip</NavLink>
-                <NavLink className="mx-2 pb-1 px-2 " to={`/myTips/${user.email}`}>Dashboard</NavLink>
+                <NavLink className="mx-2 pb-1 px-2 " to="/dashboard">Deshboard</NavLink>
+                {/* <NavLink className="mx-2 pb-1 px-2 " to={`/myTips/${user.email}`}>Dashboard</NavLink> */}
             </>
         }
 
