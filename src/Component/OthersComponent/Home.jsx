@@ -13,7 +13,7 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const { dark } = useContext(AuthContext);
     useEffect(() => {
-        fetch("https://assignment-10-server-seven-topaz.vercel.app/events")
+        fetch("http://localhost:3000/events")
             .then(res => res.json())
             .then(data => {
                 setEventData(data)

@@ -4,7 +4,7 @@ const ActiveGardeners = () => {
     const [gardeners, setGardeners] = useState([]);
 
     useEffect(() => {
-        fetch("https://assignment-10-server-seven-topaz.vercel.app/activeGardeners")
+        fetch("http://localhost:3000/activeGardeners")
             .then(res => res.json())
             .then(data => setGardeners(data));
     }, []);

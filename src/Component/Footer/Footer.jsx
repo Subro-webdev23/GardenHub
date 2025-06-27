@@ -24,26 +24,15 @@ const Footer = () => {
                 <nav>
                     <h6 className="footer-title">Contact info</h6>
                     <div className="grid grid-cols-1 gap-4">
-                        <a className='flex items-center'> <FaPhoneAlt className='mr-2' /> Phone : 123456789
+                        <a className='flex items-center'> <FaPhoneAlt className='mr-2' /> Phone : 01317491794
                         </a>
-                        <a className='flex items-center'> <IoMail className='mr-2' /> Email : garden@hub.com
+                        <a className='flex items-center'> <IoMail className='mr-2' /> Email : subrota.webdev23@gmail.com
                         </a>
 
-
-                    </div>
-                </nav>
-                <nav>
-                    <h6 className="footer-title">Terms </h6>
-                    <div className="grid grid-cols-1 gap-4">
-                        <a className='underline'>
-                            Terms
-                        </a>
-                        <a className='underline'>
-                            Condition
-                        </a>
 
                     </div>
                 </nav>
+
                 <nav>
                     <h6 className="footer-title">Social</h6>
                     <div className="grid grid-flow-col gap-4">

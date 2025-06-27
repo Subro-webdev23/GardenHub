@@ -8,17 +8,15 @@ const MyTips = () => {
     const data = useLoaderData();
     const { dark } = useContext(AuthContext);
     const [tips, setTips] = useState(data)
-    console.log(data);
+    // console.log(data);
 
 
     return (
         <div className="max-w-6xl mx-auto p-6">
             <Helmet>
-                <title>
-                    My Tips
-                </title>
+                Dashboard
             </Helmet>
-            <h1 className="text-2xl font-bold mb-6">My Tips</h1>
+            <h1 className="text-2xl font-bold mb-6">My Tips / {tips.length}</h1>
 
             <div className="overflow-x-auto rounded-lg shadow">
                 <table className={`min-w-full bg-white text-left border border-gray-200 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>

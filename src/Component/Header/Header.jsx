@@ -29,12 +29,12 @@ const Header = () => {
     }
     const navLinks = <>
         <NavLink className="mx-2 pb-1 px-2 " to="/">Home </NavLink>
-        <NavLink className="mx-2 pb-1 px-2 " to="/browseTips">Browse Tips</NavLink>
+        <NavLink className="mx-2 pb-1 px-2 " to="/browseTips">Browse All Tips</NavLink>
         <NavLink className="mx-2 pb-1 px-2 " to="/exploreGardens">Explore Gardeners</NavLink>
         {
             user && <>
                 <NavLink className="mx-2 pb-1 px-2 " to="/shareGardenTip">Share a Garden Tip</NavLink>
-                <NavLink className="mx-2 pb-1 px-2 " to={`/myTips/${user.email}`}>My Tips</NavLink>
+                <NavLink className="mx-2 pb-1 px-2 " to={`/myTips/${user.email}`}>Dashboard</NavLink>
             </>
         }
 

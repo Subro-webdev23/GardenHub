@@ -18,7 +18,7 @@ const UpdateTips = () => {
         console.log(updatedTip);
 
         // // send updated Tip to the db
-        fetch(`https://assignment-10-server-seven-topaz.vercel.app/update/${_id}`, {
+        fetch(`http://localhost:3000/update/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
