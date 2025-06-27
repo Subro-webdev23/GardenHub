@@ -16,7 +16,7 @@ const MyTips = () => {
             <Helmet>
                 My Tips
             </Helmet>
-            <h1 className="text-2xl font-bold mb-6">My Tips / {tips.length}</h1>
+            <h1 className="text-2xl font-bold mb-6">My Tips </h1>
 
             <div className="overflow-x-auto rounded-lg shadow">
                 <table className={`min-w-full bg-white text-left border border-gray-200 ${dark ? "dark" : ''} dark:text-white dark:bg-zinc-800`}>

@@ -11,7 +11,7 @@ const TipDetails = () => {
     const { dark } = useContext(AuthContext);
     console.log(title);
     const handleLike = (id) => {
-        fetch(`http://localhost:3000/tips/${id}`, {
+        fetch(`https://assignment-10-server-seven-topaz.vercel.app/tips/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

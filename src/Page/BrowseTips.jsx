@@ -16,7 +16,7 @@ const BrowseTips = () => {
     const [viewMode, setViewMode] = useState('table'); // 'table' or 'card'
 
     useEffect(() => {
-        fetch("http://localhost:3000/publicTips")
+        fetch("https://assignment-10-server-seven-topaz.vercel.app/publicTips")
             .then(res => res.json())
             .then(data => {
                 setData(data);

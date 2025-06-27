@@ -17,6 +17,8 @@ import { Suspense } from "react";
 import { HiH2 } from "react-icons/hi2";
 import DashboardOverview from "./Page/DashboardOverview";
 import DashboardLayout from "./LayOut/DashboardLayout";
+import AllItems from "./Component/OthersComponent/AllItems";
+import MyItems from "./Component/OthersComponent/MyItems";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -41,7 +43,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "tipDetails/:id",
-                loader: ({ params }) => fetch(`http://localhost:3000/publicTips/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-10-server-seven-topaz.vercel.app/publicTips/${params.id}`),
                 element: <PrivateRoute>
                     <TipDetails></TipDetails>
                 </PrivateRoute>
@@ -52,14 +54,14 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/myTips/:email",
-                loader: ({ params }) => fetch(`http://localhost:3000/myTips/${params.email}`),
+                loader: ({ params }) => fetch(`https://assignment-10-server-seven-topaz.vercel.app/myTips/${params.email}`),
                 element: <PrivateRoute>
                     <MyTips></MyTips>
                 </PrivateRoute>
             },
             {
                 path: "update/:id",
-                loader: ({ params }) => fetch(`http://localhost:3000/update/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-10-server-seven-topaz.vercel.app/update/${params.id}`),
                 element: <PrivateRoute>
                     <UpdateTips></UpdateTips>
                 </PrivateRoute>
@@ -76,12 +78,14 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <PrivateRoute>
+            <DashboardLayout />
+        </PrivateRoute>,
         children: [
             { index: true, element: <DashboardOverview /> },
-            // { path: 'all-items', element: <AllItems /> },
-            // { path: 'my-items', element: <MyTips /> },
-            // { path: 'add-item', element: <AddItem /> }
+            { path: 'all-items', element: <AllItems /> },
+            { path: 'my-items', element: <MyItems /> },
+            { path: 'add-item', element: <ShareGardenTip></ShareGardenTip> }
         ]
     }
 ]);

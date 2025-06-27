@@ -26,14 +26,14 @@ const DashboardLayout = () => {
                     </button>
 
                     {/* Sidebar */}
-                    <aside className={`fixed lg:static top-0 left-0 h-full w-64 bg-white dark:bg-zinc-800 shadow-lg p-6 transform transition-transform z-40 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
+                    <aside className={`fixed lg:static  top-0 left-0 h-full w-64 bg-white dark:bg-zinc-800 shadow-lg p-6 transform transition-transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
 
                         <nav className="space-y-4">
                             <NavLink to="/dashboard" end className={({ isActive }) => `flex items-center gap-2 p-2 rounded-md transition ${isActive ? 'bg-green-600 text-white' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-zinc-700'}`}>
                                 <FiHome /> Overview
                             </NavLink>
                             <NavLink to="/dashboard/all-items" className={({ isActive }) => `flex items-center gap-2 p-2 rounded-md transition ${isActive ? 'bg-green-600 text-white' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-zinc-700'}`}>
-                                <FiList /> All Items
+                                <FiList /> All Tips
                             </NavLink>
                             <NavLink to="/dashboard/my-items" className={({ isActive }) => `flex items-center gap-2 p-2 rounded-md transition ${isActive ? 'bg-green-600 text-white' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-zinc-700'}`}>
                                 <FiUser /> My Items
@@ -46,7 +46,7 @@ const DashboardLayout = () => {
                     </aside>
 
                     {/* Main Content */}
-                    <main className="flex-1 p-6 lg:ml-64">
+                    <main className="flex-1 p-6 ">
                         <Outlet />
                     </main>
                 </div>

@@ -20,7 +20,7 @@ const AddItem = () => {
 
         const newTip = { title, category, level, imagesURL, email };
 
-        fetch('http://localhost:3000/addTip', {
+        fetch('https://assignment-10-server-seven-topaz.vercel.app/addTip', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newTip),

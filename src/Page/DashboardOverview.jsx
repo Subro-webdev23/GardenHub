@@ -10,12 +10,12 @@ const DashboardOverview = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:3000/publicTips')
+        fetch('https://assignment-10-server-seven-topaz.vercel.app/publicTips')
             .then(res => res.json())
             .then(data => setTotalTips(data.length));
     }, []);
     useEffect(() => {
-        fetch(`http://localhost:3000/myTips/${user.email}`)
+        fetch(`https://assignment-10-server-seven-topaz.vercel.app/myTips/${user.email}`)
             .then(res => res.json())
             .then(data => setMyTips(data.length))
     }, [user.email])
